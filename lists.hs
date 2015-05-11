@@ -25,9 +25,9 @@ myButLast' (_:xs) = myButLast' xs
 -- Problem 3 (*) Find the K'th element of a list where the first number is 1.
 elementAt :: [a] -> Int -> a
 elementAt _ 0  = error "k cannot be 0"
-elementAt xs k = if length xs < k
-                    then error "k cannot be bigger than the length of the list"
-                    else xs !! (k - 1)
+elementAt xs k
+  | length xs < k = error "k cannot be bigger than the length of the list"
+  | otherwise     = xs !! (k - 1)
 
 elementAt' :: [a] -> Int -> a
 elementAt' _ 0      = error "k cannot be 0"
