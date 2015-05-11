@@ -42,3 +42,8 @@ myLength (_:xs) = 1 + myLength xs
 
 myLength' :: [a] -> Int
 myLength' xs = sum [1 | _ <- xs]
+
+-- Problem 5 (*) Reverse a list.
+myReverse :: [a] -> [a]
+myReverse []     = []
+myReverse (x:xs) = myReverse xs ++ [x]
