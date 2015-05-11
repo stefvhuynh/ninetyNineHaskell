@@ -34,3 +34,11 @@ elementAt' _ 0      = error "k cannot be 0"
 elementAt' [] _     = error "k cannot be larger than the length of the list"
 elementAt' (x:_) 1  = x
 elementAt' (_:xs) k = elementAt' xs (k - 1)
+
+-- Problem 4 (*) Find the number of elements in a list.
+myLength :: [a] -> Int
+myLength []     = 0
+myLength (_:xs) = 1 + myLength xs
+
+myLength' :: [a] -> Int
+myLength' xs = sum [1 | _ <- xs]
