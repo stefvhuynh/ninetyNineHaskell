@@ -47,3 +47,7 @@ myLength' xs = sum [1 | _ <- xs]
 myReverse :: [a] -> [a]
 myReverse []     = []
 myReverse (x:xs) = myReverse xs ++ [x]
+
+-- Problem 6 (*) Find out whether a list is a palindrome.
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == myReverse xs
