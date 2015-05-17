@@ -45,13 +45,16 @@ myLength' :: [a] -> Int
 myLength' xs = sum [1 | _ <- xs]
 
 myLength'' :: [a] -> Int
-myLength'' xs = myFoldl (\length _ -> length + 1) 0 xs
+myLength'' xs = foldl (\length _ -> length + 1) 0 xs
 
 
 -- Problem 5 (*) Reverse a list.
 myReverse :: [a] -> [a]
 myReverse []     = []
 myReverse (x:xs) = myReverse xs ++ [x]
+
+myReverse' :: [a] -> [a]
+myReverse' xs = foldl (\acc x -> x : acc) [] xs
 
 
 -- Problem 6 (*) Find out whether a list is a palindrome.

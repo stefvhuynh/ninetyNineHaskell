@@ -42,3 +42,8 @@ myFoldl f acc (x:xs) = myFoldl f (f acc x) xs
 myFoldr :: (b -> a -> a) -> a -> [b] -> a
 myFoldr _ acc []     = acc
 myFoldr f acc (x:xs) = f x (myFoldr f acc xs)
+
+
+-- Maximum using folds.
+myMax :: (Ord a) => [a] -> a
+myMax (x:xs) = myFoldl (\acc x -> if x < acc then acc else x) x xs
