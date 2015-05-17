@@ -17,6 +17,9 @@ myMap :: (a -> b) -> [a] -> [b]
 myMap _ []     = []
 myMap f (x:xs) = f x : myMap f xs
 
+myMap' :: (a -> b) -> [a] -> [b]
+myMap' f xs = myFoldr (\x acc -> f x : acc) [] xs
+
 
 -- Filter.
 myFilter :: (a -> Bool) -> [a] -> [a]
