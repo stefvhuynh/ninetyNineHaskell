@@ -92,5 +92,11 @@ myFilter' f xs = [x | x <- xs, f x]
 
 -- Fold left.
 myFoldl :: (a -> b -> a) -> a -> [b] -> a
-myFoldl _ y []     = y
-myFoldl f y (x:xs) = myFoldl f (f y x) xs
+myFoldl _ acc []     = acc
+myFoldl f acc (x:xs) = myFoldl f (f acc x) xs
+
+
+-- Fold right.
+myFoldr :: (b -> a -> a) -> a -> [b] -> a
+myFoldr _ acc []     = acc
+myFoldr f acc (x:xs) = f x (myFoldr f acc xs)
