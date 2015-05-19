@@ -47,3 +47,15 @@ myFoldr f acc (x:xs) = f x (myFoldr f acc xs)
 -- Maximum using folds.
 myMax :: (Ord a) => [a] -> a
 myMax (x:xs) = myFoldl (\acc x -> if x < acc then acc else x) x xs
+
+
+-- Scan left.
+myScanl :: (a -> b -> a) -> a -> [b] -> [a]
+myScanl f acc xs = myFoldl g [acc] xs
+  where g = \accList x -> accList ++ [f (accList !! (length accList - 1)) x]
+
+
+-- Scan right.
+myScanr :: (b -> a -> a) -> a -> [b] -> [a]
+myScanr f acc xs = myFoldr g [acc] xs
+  where g = \x accList -> f x (accList !! 0) : accList
