@@ -41,7 +41,7 @@ myFoldl f acc (x:xs) = myFoldl f (f acc x) xs
 -- Fold right.
 myFoldr :: (b -> a -> a) -> a -> [b] -> a
 myFoldr _ acc []     = acc
-myFoldr f acc (x:xs) = f x (myFoldr f acc xs)
+myFoldr f acc (x:xs) = f x $ myFoldr f acc xs
 
 
 -- Maximum using folds.
