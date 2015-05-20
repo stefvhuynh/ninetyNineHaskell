@@ -60,3 +60,18 @@ myReverse' = foldl (\acc x -> x : acc) []
 -- Problem 6 (*) Find out whether a list is a palindrome.
 isPalindrome :: (Eq a) => [a] -> Bool
 isPalindrome xs = xs == myReverse xs
+
+
+-- Problem 7 (**) Flatten a nested list structure.
+
+
+-- Problem 8 (**) Eliminate consecutive duplicates.
+compress :: (Eq a) => [a] -> [a]
+compress (x:[]) = [x]
+compress (x:xs)
+  | x == xs !! 0 = compress xs
+  | otherwise    = x : compress xs
+
+compress' :: (Eq a) => [a] -> [a]
+compress' (x:xs) = foldl f [x] xs
+  where f = \acc y -> if y == last acc then acc else acc ++ [y]
