@@ -59,3 +59,9 @@ myScanl f acc xs = myFoldl g [acc] xs
 myScanr :: (b -> a -> a) -> a -> [b] -> [a]
 myScanr f acc xs = myFoldr g [acc] xs
   where g = \x accList -> f x (accList !! 0) : accList
+
+
+-- Intersperse.
+myIntersperse :: a -> [a] -> [a]
+myIntersperse _ (x:[])     = [x]
+myIntersperse inter (x:xs) = x : inter : myIntersperse inter xs
