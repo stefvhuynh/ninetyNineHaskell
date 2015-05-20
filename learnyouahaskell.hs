@@ -65,3 +65,8 @@ myScanr f acc xs = myFoldr g [acc] xs
 myIntersperse :: a -> [a] -> [a]
 myIntersperse _ (x:[])     = [x]
 myIntersperse inter (x:xs) = x : inter : myIntersperse inter xs
+
+
+-- Concat.
+myConcat :: [[a]] -> [a]
+myConcat = myFoldl (\acc xs -> acc ++ xs) []
