@@ -1,5 +1,13 @@
 -- Extra solutions from reading learnyouahaskell.com.
 
+-- Take.
+myTake :: Int -> [a] -> [a]
+myTake i (x:xs)
+  | i == 0    = []
+  | i == 1    = [x]
+  | otherwise = x : myTake (i - 1) xs
+
+
 -- Zip two lists with a function.
 myZipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
 myZipWith _ [] _          = []
